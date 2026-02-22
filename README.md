@@ -1,0 +1,3 @@
+🌙 Ramadan Tracker
+
+Ramadan Tracker is a React and TypeScript web application that helps users track fasting days and daily prayer times during Ramadan. The app shows both Hijri and Gregorian dates, along with Suhoor, Iftar, and prayer times using real-time API data. Built with TypeScript, it ensures type safety and maintainable code while leveraging React features like components, hooks, and state management (TanStack). The project highlights practical skills in API integration with Axios, dynamic rendering, and building a responsive, user-friendly interface.
