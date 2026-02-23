@@ -8,7 +8,7 @@ import { TiWeatherPartlySunny } from "react-icons/ti";
 import { TbSunset2 } from "react-icons/tb";
 import { IoCloudyNightOutline } from "react-icons/io5";
 import QiblaCard from "../qibla/Qibla";
-import { useCountPrayerTime } from "../../hooks/useCountPrayerTime";
+import { getTimeRemaining, useCountPrayerTime } from "../../hooks/useCountPrayerTime";
 
 export default function PrayerTimes() {
   const location = useUserLocation();
@@ -39,6 +39,20 @@ export default function PrayerTimes() {
     },
   ];
 
+  // const remainingTimes = prayerList.map((prayer) => {
+  //   return {
+  //     name: prayer.name,
+  //     timeLeft: useCountPrayerTime(times?.[prayer.name] || ""),
+  //   };
+  // });
+
+  // const remainigTimes2 = useCountPrayerTime(times?.[prayerList[0].name] || "")
+  // console.log(remainigTimes2);
+  
+  const remainingTimes = prayerList.map((prayer) => ({
+  name: prayer.name,
+  timeLeft: times? getTimeRemaining(times[prayer.name]): null,}));
+
   return (
     <>
       <div className="max-w-6xl mx-auto bg-rose-950/90 p-6 rounded-2xl shadow-lg">
@@ -57,7 +71,7 @@ export default function PrayerTimes() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 bg-orange-50 rounded-2xl p-5 font-semibold text-gray-700">
           {prayerList.map((prayer) => {
-            const timeLeft = useCountPrayerTime(times?.[prayer.name] || "");
+            const timeLeft = remainingTimes.find(p => p.name === prayer.name)?.timeLeft;
 
             return (
               <div

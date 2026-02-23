@@ -28,6 +28,5 @@ export function useCountPrayerTime(prayerTime:string) {
     }, [prayerTime])
 
       return timeLeft;
-
 ;
 }
