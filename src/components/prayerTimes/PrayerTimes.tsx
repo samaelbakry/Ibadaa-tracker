@@ -8,7 +8,7 @@ import { TiWeatherPartlySunny } from "react-icons/ti";
 import { TbSunset2 } from "react-icons/tb";
 import { IoCloudyNightOutline } from "react-icons/io5";
 import QiblaCard from "../qibla/Qibla";
-import { getTimeRemaining, useCountPrayerTime } from "../../hooks/useCountPrayerTime";
+import { getTimeRemaining } from "../../hooks/useCountPrayerTime";
 
 export default function PrayerTimes() {
   const location = useUserLocation();
