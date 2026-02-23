@@ -16,11 +16,11 @@ export default function PrayerTimes() {
     usePrayer(location?.lat!, location?.lng!);
   const times = data?.data.times;
 
-  // if (isLoading) return (
-  //   <div className="flex justify-center items-center h-48">
-  //     <p className="text-white font-bold text-xl">Loading prayer times...</p>
-  //   </div>
-  // );
+  if (isLoading) return (
+    <div className="flex justify-center items-center h-48">
+      <p className="text-white font-bold text-xl">Loading prayer times...</p>
+    </div>
+  );
 
   type PrayerName = keyof PrayerData["data"]["times"];
 

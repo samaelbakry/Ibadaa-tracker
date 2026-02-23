@@ -2,7 +2,6 @@ import Header from "../header/Header";
 import Duaa from "../duaa/Duaa";
 import image from "./../../assets/8445202-removebg-preview.png";
 import { useRef } from "react";
-import { SplitText } from "gsap/src/SplitText.js";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap/all";
 import PrayerTimes from "../prayerTimes/PrayerTimes";
