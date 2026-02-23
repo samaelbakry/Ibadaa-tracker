@@ -1,4 +1,3 @@
-
 import { useCountDown } from "../../hooks/useCountDown"
 import { useRamadanData } from "../../hooks/useRmadanData"
 import { useUserLocation } from "../../hooks/useUserLocation"
@@ -6,10 +5,11 @@ import { HiCalendarDateRange } from "react-icons/hi2";
 import { CiTimer } from "react-icons/ci";
 
 
+
 export default function Header() {
 const location = useUserLocation()
 
-  const { data } = useRamadanData(
+  const {data } = useRamadanData(
     location?.lat,
     location?.lng
   )  
@@ -32,14 +32,16 @@ const location = useUserLocation()
 }
 
   return <>
-  <header className='flex items-center justify-between '>
+
+  <header className='flex items-center justify-between p-5 rounded-lg'>
     <div className="space-y-3">
-            <h1 className='text-4xl font-semibold text-amber-800'>Ramadan Tracker</h1> 
+            <h1 className='text-4xl font-semibold text-rose-900'>Ramadan Tracker 🌙</h1> 
             <p className='text-sm text-gray-500'>Track your daily ibada with ease</p>
             <span className='text-sm text-gray-500'><HiCalendarDateRange className="mr-1 inline-block"/>{hijriDate}</span>
             <p><CiTimer className="mr-1 inline-block" /> {formatTime(timeLeft)} time left until iftar</p>
     </div>
-    <span className='text-sm text-gray-500'> 1447 hijri</span>
+    <span className='text-sm text-gray-500'> 
+      {today?.date}   1447 hijri </span>
   </header>
   </>
 }
