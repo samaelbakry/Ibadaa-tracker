@@ -7,12 +7,14 @@ import { CiTimer } from "react-icons/ci";
 
 
 export default function Header() {
-const location = useUserLocation()
 
-  const {data } = useRamadanData(
+  const location = useUserLocation()
+  const { data } = useRamadanData(
     location?.lat,
     location?.lng
-  )  
+  ) 
+
+
   const today = data?.data?.fasting?.find((day: any) => {
   return day.date === new Date().toISOString().split("T")[0]})
 
