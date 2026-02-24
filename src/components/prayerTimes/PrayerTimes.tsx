@@ -7,8 +7,10 @@ import { GoSun } from "react-icons/go";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import { TbSunset2 } from "react-icons/tb";
 import { IoCloudyNightOutline } from "react-icons/io5";
+import { FaMosque } from "react-icons/fa";
 import QiblaCard from "../qibla/Qibla";
 import PrayerCard from "../prayerCard/PrayerCard";
+import IbadaChecklist from "../ibadaChecklist/IbadaChecklist";
 
 export default function PrayerTimes() {
   const location = useUserLocation();
@@ -38,6 +40,7 @@ export default function PrayerTimes() {
       <div className="max-w-6xl mx-auto bg-rose-950/90 p-6 rounded-2xl shadow-lg">
         <div className="flex justify-between items-center mb-4">
           <h2 className="font-bold text-white text-3xl">
+            <FaMosque className="mr-2 inline-block text-amber-200"/>
             Today's Prayer Times
           </h2>
           <div className="flex gap-3 items-center">
@@ -58,6 +61,9 @@ export default function PrayerTimes() {
         <div className="grid grid-cols-1 md:grid-cols-2 my-2 gap-2">
           <div className="grid-col-span-1 rounded-2xl p-6 flex flex-col items-center gap-4 bg-orange-50 shadow">
             <QiblaCard degrees={data?.data.qibla.direction.degrees || 0} />
+          </div>
+          <div className="grid-col-span-1 rounded-2xl p-5 bg-orange-50 shadow">
+            <IbadaChecklist/>
           </div>
         </div>
       </div>
