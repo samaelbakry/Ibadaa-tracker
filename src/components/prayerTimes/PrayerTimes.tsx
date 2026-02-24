@@ -8,12 +8,12 @@ import { TiWeatherPartlySunny } from "react-icons/ti";
 import { TbSunset2 } from "react-icons/tb";
 import { IoCloudyNightOutline } from "react-icons/io5";
 import QiblaCard from "../qibla/Qibla";
-import { getTimeRemaining } from "../../hooks/useCountPrayerTime";
+import PrayerCard from "../prayerCard/PrayerCard";
 
 export default function PrayerTimes() {
   const location = useUserLocation();
-  const { data, isLoading }: { data?: PrayerData; isLoading: boolean } =
-    usePrayer(location?.lat!, location?.lng!);
+  const { data, isLoading }: { data?: PrayerData; isLoading: boolean } = usePrayer(location?.lat!, location?.lng!);
+
   const times = data?.data.times;
 
   if (isLoading) return (
@@ -28,30 +28,10 @@ export default function PrayerTimes() {
     { name: "Fajr", icon: <FiMoon className="mr-2 inline-block" /> },
     { name: "Sunrise", icon: <WiSunrise className="mr-2 inline-block" /> },
     { name: "Dhuhr", icon: <GoSun className="mr-2 inline-block" /> },
-    {
-      name: "Asr",
-      icon: <TiWeatherPartlySunny className="mr-2 inline-block" />,
-    },
+    {name: "Asr",icon: <TiWeatherPartlySunny className="mr-2 inline-block" />,},
     { name: "Maghrib", icon: <TbSunset2 className="mr-2 inline-block" /> },
-    {
-      name: "Isha",
-      icon: <IoCloudyNightOutline className="mr-2 inline-block" />,
-    },
+    { name: "Isha", icon: <IoCloudyNightOutline className="mr-2 inline-block" />,},
   ];
-
-  // const remainingTimes = prayerList.map((prayer) => {
-  //   return {
-  //     name: prayer.name,
-  //     timeLeft: useCountPrayerTime(times?.[prayer.name] || ""),
-  //   };
-  // });
-
-  // const remainigTimes2 = useCountPrayerTime(times?.[prayerList[0].name] || "")
-  // console.log(remainigTimes2);
-  
-  const remainingTimes = prayerList.map((prayer) => ({
-  name: prayer.name,
-  timeLeft: times? getTimeRemaining(times[prayer.name]): null,}));
 
   return (
     <>
@@ -71,25 +51,9 @@ export default function PrayerTimes() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 bg-orange-50 rounded-2xl p-5 font-semibold text-gray-700">
           {prayerList.map((prayer) => {
-            const timeLeft = remainingTimes.find(p => p.name === prayer.name)?.timeLeft;
-
-            return (
-              <div
-                key={prayer.name}
-                className="flex flex-col items-center justify-center bg-white shadow-md rounded-xl p-4 hover:scale-105 transition-transform duration-300"
-              >
-                <p className="text-lg flex items-center mb-2">
-                  {prayer.icon} {prayer.name}
-                </p>
-                <p>{times?.[prayer.name]}</p>
-                <p className="text-xl font-bold">
-                  {timeLeft
-                    ? `${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`
-                    : "Passed"}
-                </p>
-              </div>
-            );
+            return <PrayerCard key={prayer.name} icon={prayer.icon} name={prayer.name} time={times?.[prayer.name] || ""} />;
           })}
+
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 my-2 gap-2">
           <div className="grid-col-span-1 rounded-2xl p-6 flex flex-col items-center gap-4 bg-orange-50 shadow">
