@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getRamadanData } from "../services/ramadanApi";
+import { getRamadanData } from "../services/ramadanServices";
 
 export function useRamadanData(lat?:number , lng?:number){
     return useQuery({

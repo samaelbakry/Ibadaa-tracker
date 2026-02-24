@@ -11,6 +11,7 @@ import { FaMosque } from "react-icons/fa";
 import QiblaCard from "../qibla/Qibla";
 import PrayerCard from "../prayerCard/PrayerCard";
 import IbadaChecklist from "../ibadaChecklist/IbadaChecklist";
+import { Link } from "react-router-dom";
 
 export default function PrayerTimes() {
   const location = useUserLocation();
@@ -37,7 +38,7 @@ export default function PrayerTimes() {
 
   return (
     <>
-      <div className="max-w-6xl mx-auto bg-rose-950/90 p-6 rounded-2xl shadow-lg">
+      <div className="max-w-6xl mx-auto bg-rose-950/80 p-6 rounded-2xl shadow-lg my-9">
         <div className="flex justify-between items-center mb-4">
           <h2 className="font-bold text-white text-3xl">
             <FaMosque className="mr-2 inline-block text-amber-200"/>
@@ -66,6 +67,9 @@ export default function PrayerTimes() {
             <IbadaChecklist/>
           </div>
         </div>
+        <Link to="/quran" className="block text-center mt-4 text-white font-bold bg-blur hover:bg-rose-950/80 hover:text-white p-2 px-4 rounded-md duration-500">
+          View all Quran chapters
+        </Link>
       </div>
     </>
   );
