@@ -11,13 +11,19 @@ export default function Header() {
 
   const { data } = useRamadanData(location?.lat, location?.lng);
 
+  const now = new Date();
+
+
   const today = data?.data?.fasting?.find((day: any) => {
     return day.date === new Date().toISOString().split("T")[0];
   });
 
-  const iftarTime = today
-    ? new Date(`${today.date} ${today.time.iftar}`)
-    : null;
+  const nextFastingDay = data?.data?.fasting?.find((day: any) => {
+  const iftarDate = new Date(`${day.date}T${day.time.iftar}`)
+  return iftarDate > now
+});
+
+  const iftarTime = nextFastingDay ? new Date(`${nextFastingDay.date}T${nextFastingDay.time.iftar}`): null;
 
   const hijriDate = today?.hijri_readable;
 
