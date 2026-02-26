@@ -1,6 +1,7 @@
+import { CiTimer } from 'react-icons/ci';
 import { useCountPrayerTime } from '../../hooks/useCountPrayerTime';
 
-export default function PrayerCard({ icon, name, time }:{icon: React.ReactNode, name: string, time: string}) {
+export default function PrayerCard({ icon, name, time , isLoading }:{icon: React.ReactNode, name: string, time: string ,isLoading :boolean }) {
 const timeLeft = useCountPrayerTime(time);
 
  return <>
@@ -10,7 +11,13 @@ const timeLeft = useCountPrayerTime(time);
       </p>
       <p>{time}</p>
       <p className="text-xl font-bold">
+        {isLoading ? <>
+        <CiTimer className="text-base"/>
+        </> :
+        <>
         {timeLeft? `${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s` : "Passed"}
+        </>
+        }
       </p>
     </div>
  </>

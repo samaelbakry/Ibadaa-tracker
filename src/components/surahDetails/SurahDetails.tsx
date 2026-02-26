@@ -1,30 +1,32 @@
 import { useParams } from "react-router-dom";
 import { useChapterData } from "../../hooks/useQuran";
 import type { ChapterData } from "../../interfaces/quran";
-import image  from "../../assets/8445202-removebg-preview.png"
 
 
 export default function SurahDetails() {
   const { surahNumber } = useParams<{ surahNumber: string }>();
+
 
   const { data, isLoading } = useChapterData(Number(surahNumber)) as {
     data?: ChapterData;
     isLoading: boolean;
   };
 
-  if (isLoading) {
-    return <div className="text-center">Loading chapter...</div>;
-  }
   console.log(data);
 
   return (
     <>
-        <img src={image} alt="Quran background" className=" object-cover rounded-t-2xl" />
-      <div className="max-w-6xl mx-auto bg-blur my-6 p-9">
-        <h4 className="text-center text-rose-950 font-bold text-xl">
+    { isLoading ? <>
+     <div className="max-w-6xl mx-auto bg-blur rounded-2xl p-5 my-10 shadow">
+       <span className="text-center text-rose-900 dark:text-white">Loading Surah...</span>
+      </div>
+    </> 
+      : <>
+    <div className="max-w-6xl mx-5 md:mx-auto bg-orange-100/90 dark:bg-blue-950/80 dark:backdrop-blur-xl  rounded-xl shadow my-10 p-9">
+        <h4 className="text-center text-rose-950 dark:text-orange-200 font-bold text-xl">
           «بسم الله الرحمن الرحيم»
         </h4>
-        <h2 className="text-center text-base font-bold mb-6 text-rose-950">
+        <h2 className="text-center text-base font-bold mb-6 text-rose-950 dark:text-orange-200">
         {data?.surahNameArabicLong}
         </h2>
         <div
@@ -38,6 +40,8 @@ export default function SurahDetails() {
           ))}
         </div>
       </div>
+    </>}
+      
     </>
   );
 }

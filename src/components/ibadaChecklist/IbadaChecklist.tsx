@@ -28,12 +28,12 @@ export default function IbadaChecklist() {
     
 
   return <>
-    <h3 className="text-3xl font-bold text-amber-800 text-center my-2">
+    <h3 className="text-lg md:text-2xl font-bold text-yellow-700 text-center my-2 dark:text-blue-900">
       <BsCardChecklist className="inline-block mr-2" />
       Ibada Checklist
     </h3>
-    <div className="flex justify-between items-center">
-     <div className="p-4 ">
+    <div className="flex justify-between items-center flex-wrap">
+     <div className="p-2">
       <Checkbox
         isIndeterminate={selected.length > 0 && selected.length < allOptions.length}
         isSelected={selected.length === allOptions.length}
@@ -44,17 +44,17 @@ export default function IbadaChecklist() {
           <Checkbox.Indicator />
         </Checkbox.Control>
         <Checkbox.Content>
-          <Label className="text-xl font-bold">Mark all</Label>
+          <Label className="text-xl font-bold dark:text-gray-400">Mark all</Label>
         </Checkbox.Content> 
       </Checkbox>
-      <div className="ml-6 flex gap-2">
+      <div className="ml-6 flex gap-2 flex-wrap">
         <CheckboxGroup value={selected} onChange={setSelected}>
           <Checkbox value="fajr">
             <Checkbox.Control >
               <Checkbox.Indicator/>
             </Checkbox.Control>
             <Checkbox.Content>
-              <Label className="text-lg font-semibold">Fajr 🌙</Label>
+              <Label className="text-lg font-semibold dark:text-gray-400">Fajr 🌙</Label>
             </Checkbox.Content>
           </Checkbox>
           <Checkbox value="dhuhr">
@@ -62,7 +62,7 @@ export default function IbadaChecklist() {
               <Checkbox.Indicator />
             </Checkbox.Control>
             <Checkbox.Content>
-              <Label className="text-lg font-semibold">Dhuhr ☀️</Label>
+              <Label className="text-lg font-semibold dark:text-gray-400">Dhuhr ☀️</Label>
             </Checkbox.Content>
           </Checkbox>
           <Checkbox value="asr">
@@ -70,7 +70,7 @@ export default function IbadaChecklist() {
               <Checkbox.Indicator />
             </Checkbox.Control>
             <Checkbox.Content>
-              <Label className="text-lg font-semibold">Asr 🌤️</Label>
+              <Label className="text-lg font-semibold dark:text-gray-400">Asr 🌤️</Label>
             </Checkbox.Content>
           </Checkbox>
           <Checkbox value="maghrib">
@@ -78,7 +78,7 @@ export default function IbadaChecklist() {
               <Checkbox.Indicator />
             </Checkbox.Control>
             <Checkbox.Content>
-              <Label className="text-lg font-semibold">Maghrib ⛅</Label>
+              <Label className="text-lg font-semibold dark:text-gray-400">Maghrib ⛅</Label>
             </Checkbox.Content>
           </Checkbox>
         </CheckboxGroup>
@@ -93,7 +93,7 @@ export default function IbadaChecklist() {
               <Checkbox.Indicator />
             </Checkbox.Control>
             <Checkbox.Content>
-              <Label className="text-lg font-semibold">Isha 🌑</Label>
+              <Label className="text-lg font-semibold dark:text-gray-400">Isha 🌑</Label>
             </Checkbox.Content>
           </Checkbox>
           <Checkbox value="morning-adhkar">
@@ -101,7 +101,7 @@ export default function IbadaChecklist() {
               <Checkbox.Indicator />
             </Checkbox.Control>
             <Checkbox.Content>
-              <Label className="text-lg font-semibold">Morning Adhkar📿</Label>
+              <Label className="text-lg font-semibold dark:text-gray-400">Morning Adhkar📿</Label>
             </Checkbox.Content>
           </Checkbox>
           <Checkbox value="evening-adhkar">
@@ -109,15 +109,15 @@ export default function IbadaChecklist() {
               <Checkbox.Indicator />
             </Checkbox.Control>
             <Checkbox.Content>
-              <Label className="text-lg font-semibold">Evening Adhkar 📿</Label>
+              <Label className="text-lg font-semibold dark:text-gray-400">Evening Adhkar 📿</Label>
             </Checkbox.Content>
           </Checkbox>
           <Checkbox value="quran-recitation">
-            <Checkbox.Control>
+            <Checkbox.Control >
               <Checkbox.Indicator />
             </Checkbox.Control>
             <Checkbox.Content>
-              <Label className="text-lg font-semibold">Quran Recitation✨</Label>
+              <Label className="text-lg font-semibold dark:text-gray-400">Quran Recitation✨</Label>
             </Checkbox.Content>
           </Checkbox>
         </CheckboxGroup>

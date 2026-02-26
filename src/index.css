@@ -1,19 +1,19 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
 
-body{
+/* body{
     background-image: url(./assets/psdd_03_06_2022_112.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
-}
+} */
 
 @layer utilities{
   
     .bg-blur{
-        @apply bg-white/10 backdrop-blur-xl rounded-2xl border border-white/30 shadow-2xl font-semibold
+        @apply bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/30 shadow-2xl font-semibold
     }
    
 }

@@ -19,12 +19,6 @@ export default function PrayerTimes() {
 
   const times = data?.data.times;
 
-  if (isLoading) return (
-    <div className="flex justify-center items-center h-48">
-      <p className="text-white font-bold text-xl">Loading prayer times...</p>
-    </div>
-  );
-
   type PrayerName = keyof PrayerData["data"]["times"];
 
   const prayerList: { name: PrayerName; icon: React.ReactNode }[] = [
@@ -38,36 +32,36 @@ export default function PrayerTimes() {
 
   return (
     <>
-      <div className="max-w-6xl mx-auto bg-rose-950/80 p-6 rounded-2xl shadow-lg my-9">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="font-bold text-white text-3xl">
-            <FaMosque className="mr-2 inline-block text-amber-200"/>
+      <div className="max-w-6xl mx-5 md:mx-auto bg-blur p-6 rounded-2xl shadow-lg my-8">
+        <div className="flex justify-between items-center mb-4 flex-wrap gap-2 md:gap-0">
+          <h2 className="font-bold text-yellow-700 text-lg md:text-3xl dark:text-white">
+            <FaMosque className="mr-2 inline-block text-yellow-700"/>
             Today's Prayer Times
           </h2>
-          <div className="flex gap-3 items-center">
-            <p className="font-bold text-white text-2xl">
+          <div className="flex gap-3 items-center flex-wrap">
+            <p className="font-bold text-yellow-700 dark:text-white text-base md:text-2xl">
               {data?.data?.date?.gregorian?.date}
             </p>
-            <p className="font-bold text-white text-2xl">
+            <p className="font-bold text-yellow-700 dark:text-white text-base md:text-2xl">
               {data?.data?.date?.hijri?.weekday.ar}
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 bg-orange-50 rounded-2xl p-5 font-semibold text-gray-700">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 bg-orange-50 dark:bg-blue-100 rounded-2xl p-5 font-semibold text-gray-700">
           {prayerList.map((prayer) => {
-            return <PrayerCard key={prayer.name} icon={prayer.icon} name={prayer.name} time={times?.[prayer.name] || ""} />;
+            return <PrayerCard key={prayer.name} icon={prayer.icon} name={prayer.name} time={times?.[prayer.name] || ""}  isLoading={isLoading}/>;
           })}
 
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 my-2 gap-2">
-          <div className="grid-col-span-1 rounded-2xl p-6 flex flex-col items-center gap-4 bg-orange-50 shadow">
+          <div className="grid-col-span-1 rounded-2xl p-6 flex flex-col items-center gap-4 bg-orange-50 shadow dark:bg-blue-100">
             <QiblaCard degrees={data?.data.qibla.direction.degrees || 0} />
           </div>
-          <div className="grid-col-span-1 rounded-2xl p-5 bg-orange-50 shadow">
+          <div className="grid-col-span-1 rounded-2xl p-5 bg-orange-50 shadow dark:bg-blue-100">
             <IbadaChecklist/>
           </div>
         </div>
-        <Link to="/quran" className="block text-center mt-4 text-white font-bold bg-blur hover:bg-rose-950/80 hover:text-white p-2 px-4 rounded-md duration-500">
+        <Link to="/quran" className="block text-center mt-4 text-yellow-700 font-bold bg-blur hover:bg-yellow-700/80 hover:text-white dark:hover:bg-blue-900 dark:text-white p-2 px-4 rounded-md duration-500">
           View all Quran chapters
         </Link>
       </div>

@@ -22,11 +22,11 @@ export default function QiblaCard({ degrees }: { degrees: number }) {
 
   return (
       <>
-          <h2 className="text-lg font-semibold">اتجاه القبلة</h2>
+          <h2 className="text-lg font-semibold dark:text-gray-600">اتجاه القبلة</h2>
             <div className="relative w-40 h-40 flex items-center justify-center">
-            <div className="absolute w-full h-full rounded-full border-4 border-gray-200" />
+            <div className="absolute w-full h-full rounded-full border-4 border-gray-200 dark:border-gray-600" />
             <div className="absolute duration-700" >
-              <FaCompass size={80} style={{ transform: `rotate(${rotation}deg)` }}  className="text-rose-900" />
+              <FaCompass size={80} style={{ transform: `rotate(${rotation}deg)` }}  className="text-rose-900 dark:text-blue-950" />
             </div>
             <span className="absolute top-1 text-sm font-bold">N</span>
           </div>
