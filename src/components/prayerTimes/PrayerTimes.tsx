@@ -60,10 +60,19 @@ export default function PrayerTimes() {
           <div className="grid-col-span-1 rounded-2xl p-5 bg-orange-50 shadow dark:bg-blue-100">
             <IbadaChecklist/>
           </div>
-        </div>
-        <Link to="/quran" className="block text-center mt-4 text-yellow-700 font-bold bg-blur hover:bg-yellow-700/80 hover:text-white dark:hover:bg-blue-900 dark:text-white p-2 px-4 rounded-md duration-500">
+        
+         <Link to="/quran" className="block text-center mt-4 text-yellow-700 font-bold bg-blur hover:bg-yellow-700/80 hover:text-white dark:hover:bg-blue-900 dark:text-white p-2 px-4 rounded-md duration-500">
           View all Quran chapters
-        </Link>
+         </Link>
+           <Link to="/morningadhkar" className="block text-center mt-4 text-yellow-700 font-bold bg-blur hover:bg-yellow-700/80 hover:text-white dark:hover:bg-blue-900 dark:text-white p-2 px-4 rounded-md duration-500">
+          View Morning Adhkar
+           </Link>
+           <Link to="/eveningadhkar" className="block text-center mt-4 text-yellow-700 font-bold bg-blur hover:bg-yellow-700/80 hover:text-white dark:hover:bg-blue-900 dark:text-white p-2 px-4 rounded-md duration-500">
+          View Evening Adhkar
+           </Link>
+           </div>
+     
+       
       </div>
     </>
   );

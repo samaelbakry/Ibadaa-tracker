@@ -3,7 +3,7 @@ import { useRamadanData } from "../../hooks/useRamadanData";
 import { useUserLocation } from "../../hooks/useUserLocation";
 import { HiCalendarDateRange } from "react-icons/hi2";
 import { CiTimer } from "react-icons/ci";
-import { useTheme } from "../../context/themeContext";
+import { useTheme } from "../../hooks/useTheme";
 
 export default function Header() {
   const location = useUserLocation();
