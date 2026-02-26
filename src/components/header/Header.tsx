@@ -13,7 +13,6 @@ export default function Header() {
 
   const now = new Date();
 
-
   const today = data?.data?.fasting?.find((day: any) => {
     return day.date === new Date().toISOString().split("T")[0];
   });
