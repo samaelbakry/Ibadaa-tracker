@@ -8,7 +8,7 @@ export default function EveningAdhkar() {
    
   return <>
   <div className="max-w-6xl mx-5 md:mx-auto bg-blur p-6 rounded-2xl shadow-lg my-8">
-    <h2 className="text-centertext-yellow-700 dark:text-orange-200 text-base md:text-2xl">أذكار المساء</h2>
+    <h2 className="text-center text-yellow-700 dark:text-orange-200 text-base md:text-2xl">أذكار المساء</h2>
     {eveningAdhkar?.map((zekr , index)=>(
       <AdhkarCard key={index} zekr={zekr} />
     ))}
