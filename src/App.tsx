@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { useTheme } from "./hooks/useTheme";
-import Sidebar from "./components/SideBar";
 import Main from "./components/main/Main";
 import Quran from "./components/quran/Quran";
 import SurahDetails from "./components/surahDetails/SurahDetails";
 import MorningAdhkar from "./components/adhkar/MorningAdhkar";
 import EveningAdhkar from "./components/adhkar/EveningAdhkar";
+import Sidebar from "./components/Sidebar";
 
 const AppLayout = () => {
   return (
