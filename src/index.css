@@ -1,14 +1,6 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
 
-/* body{
-    background-image: url(./assets/psdd_03_06_2022_112.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
-} */
 
 @layer utilities{
   
